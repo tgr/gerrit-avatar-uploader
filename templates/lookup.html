@@ -1,0 +1,14 @@
+<!-- TODO merge this into index.html, supporting AJAX updates is not worth the complexity -->
+<!-- TODO provide a preview with the same dimensions and formatting that will be used in Gerrit -->
+<div>
+    Select image:
+    {% for url in gravatar_urls %}
+        <button class="btn btn-default">
+            <img src="{{url | urlencode}}" class="img-circle" />
+        </button>
+    {% endfor %}
+    {% if current_avatar_url %}
+        Current image:
+        <img src="{{ current_avatar_url | urlencode}}" class="img-circle" />
+    {% endif %}
+</div>

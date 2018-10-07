@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap --><link rel="stylesheet" href="https://tools-static.wmflabs.org/cdnjs/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Gerrit avatar uploader</title>
+  </head>
+  <body>
+    {% for category, bs_class in { 'success': 'success', 'error': 'danger', 'warning': 'warning', 'info: 'info' } %}
+    {% with messages = get_flashed_messages(category_filter=[category]) %}
+    {% if messages %}
+      <div class="alert alert-{{ bs_class | e }}" role="alert">
+        {% for message in messages %}
+          {{ message | e }}
+          {% if not loop.last %}
+            <hr />
+          {% endif }
+        {% endfor %}
+      </div>
+    {% endif %}
+    {% endwith %}
+    {% endfor %}
+
+    <div class="container">
+      <div class="page-header">
+        <h1>Gerrit avatar uploader</h1>
+      </div>
+
+      <form action="/lookup" method="post">
+        <div class="form-group">
+          <label for="gerrit-username">Enter you Gerrit username:</label>
+          <div class="input-group">
+            <input class="form-control" id="gerrit-username" />
+            <span class="input-group-btn">
+              <button class="btn btn-primary" id="gerrit-username-submit">Go!</button>
+            </span>
+          </div>
+        </div>
+      </form>
+
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">Source code and bug reports: <a href="https://github.com/tgr/gerrit-avatar-uploader">GitHub</a></p>
+      </div>
+    </footer>
+
+    <!-- jQuery--><script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Bootstrap --><script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+MWOAUTH_URL: https://www.mediawiki.org/w/index.php
+CONSUMER_KEY:
+CONSUMER_SECRET:
+
+LDAP_BASE_URL: ldap://ldap-labs.eqiad.wikimedia.org:389 ldap://ldap-labs.codfw.wikimedia.org:389
+GERRIT_API_BASE_URL: https://gerrit.wikimedia.org/r/
